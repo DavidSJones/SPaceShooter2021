@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMotor : MonoBehaviour
+public class PlayerMotor : Motor
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Update is called once per frame
     void Update()
+=======
+
+    public delegate void Slowed(bool data);
+    public static event Slowed _playerSlowed;
+
+    protected override void Start()
+>>>>>>> parent of e3adaa0 (Fail)
     {
-        
+        base.Start();
+        maxManeuveringSpeed = 4;
     }
 =======
 
