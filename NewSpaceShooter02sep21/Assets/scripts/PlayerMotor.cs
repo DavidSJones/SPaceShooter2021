@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMotor : Motor
+public class PlayerMotor : MonoBehaviour
 {
-
-
-    public delegate void Slowed(bool data);
-    public static event Slowed _playerSlowed;
-
-    protected override void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        base.Start();
-        maxManeuveringSpeed = 4;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
