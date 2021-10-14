@@ -22,5 +22,8 @@ public class PlayerMotor : MonoBehaviour
     public static event Slowed _playerSlowed;
 
     
+<<<<<<< HEAD
+>>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
+=======
 >>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
 }
