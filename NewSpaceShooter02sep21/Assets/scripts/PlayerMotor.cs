@@ -26,6 +26,9 @@ public class PlayerMotor : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
+=======
 >>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
 =======
 >>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
