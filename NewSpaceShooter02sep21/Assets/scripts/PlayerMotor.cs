@@ -10,9 +10,17 @@ public class PlayerMotor : MonoBehaviour
         
     }
 
+<<<<<<< HEAD
     // Update is called once per frame
     void Update()
     {
         
     }
+=======
+
+    public delegate void Slowed(bool data);
+    public static event Slowed _playerSlowed;
+
+    
+>>>>>>> parent of 9691f7b (ForwardSpeedStuff00)
 }
