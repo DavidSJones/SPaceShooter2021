@@ -9,8 +9,11 @@ public class Motor : MonoBehaviour
     protected Rigidbody body;
     [SerializeField] protected Controller control;
 
-    [SerializeField] protected float maxSpeed;
-    [SerializeField] protected float curSpeed;
+    protected float maxForwardSpeed;
+    protected float curForwardSpeed;
+
+    [SerializeField] protected float maxManeuveringSpeed;
+    [SerializeField] protected float curManeuveringSpeed;
 
     protected Vector3 pilotInput;
 
@@ -19,7 +22,8 @@ public class Motor : MonoBehaviour
         body = GetComponent<Rigidbody>();
         control = GetComponent<Controller>();
 
-        curSpeed = maxSpeed;
+        curForwardSpeed = maxForwardSpeed;
+        curManeuveringSpeed = maxManeuveringSpeed;
     }
 
     protected virtual void Update()
@@ -35,12 +39,17 @@ public class Motor : MonoBehaviour
 
     protected void GetPilotInput()
     {
-        pilotInput = control.movement * curSpeed * Time.deltaTime;
-        
+        Vector3 _inputs = new Vector3(0,0,0);
+
+        _inputs.x = control.movement.x * curManeuveringSpeed;
+        _inputs.y = control.movement.y * curForwardSpeed;
+        _inputs.z = control.movement.z * curManeuveringSpeed;
+
+        pilotInput = _inputs * Time.deltaTime;
     }
 
     public void SetSpeed(bool slow)
     {
-        if (slow) curSpeed -= maxSpeed / 2;
+        if (slow) curManeuveringSpeed -= maxManeuveringSpeed / 2;
     }
 }

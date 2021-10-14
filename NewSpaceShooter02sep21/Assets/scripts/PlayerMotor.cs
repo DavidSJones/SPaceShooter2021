@@ -9,5 +9,9 @@ public class PlayerMotor : Motor
     public delegate void Slowed(bool data);
     public static event Slowed _playerSlowed;
 
-    
+    protected override void Start()
+    {
+        base.Start();
+        maxManeuveringSpeed = 4;
+    }
 }
