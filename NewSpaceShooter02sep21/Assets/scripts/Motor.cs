@@ -9,6 +9,17 @@ public class Motor : MonoBehaviour
     protected Rigidbody body;
     [SerializeField] protected Controller control;
 
+    protected PowerSupply myPower;
+
+
+
+
+
+
+
+
+
+
     protected float maxForwardSpeed;
     protected float curForwardSpeed;
 

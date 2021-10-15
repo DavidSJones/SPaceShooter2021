@@ -34,8 +34,8 @@ public class PlayerShip : Ship
     private void UseGenerator()
     {
         //adds power from generator to power supply when current power is under base power
-        if (myPS.curPower >= myPS.maxPower) return;
-        else if (myPS.curPower + myGene.GetPower() > myPS.maxPower) myPS.ResetPower();
-        else myPS.AddPower(myGene.GetPower());
+        //if (myPS.curPower >= myPS.maxPower) return;
+        //else if (myPS.curPower + myGene.GetPower() > myPS.maxPower) myPS.ResetPower();
+        //else myPS.AddPower(myGene.GetPower());
     }
 }

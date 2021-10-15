@@ -1,34 +1,48 @@
 using UnityEngine;
 
-public class Generator : MonoBehaviour
+public class Generator : PowerSupply
 {
-    [SerializeField] private float productionLevel = 1f;
-    [SerializeField] private float productionRate = 0.1f;
-    private float timePassed;
-    private float power;
+    [SerializeField] protected float cyclesPerSecond;
 
-    private void Start()
+    protected float timeRequired;
+    protected float timePassed;
+    
+    protected override void Start()
     {
+        base.Start();
+
+        curPower = 0;
+        maxDraw = curPower;
+
         timePassed = 0;
+
+        SetTimeRequired();
     }
 
-    private void Update()
+    protected void Update()
     {
-        timePassed += Time.deltaTime;
-
-        if(timePassed >= productionRate)
-        {
-            power += productionLevel;
-            timePassed = 0;
-        }
+        AdvanceTimer();
+        CheckTimer();
     }
 
-    public float GetPower()
+    protected void SetTimeRequired() { timeRequired = 100 / cyclesPerSecond; }
+    protected void AdvanceTimer() { timePassed += Time.deltaTime; }
+    protected void CheckTimer() { if (timePassed >= timeRequired) { CompleteCycle(); } }
+
+    protected void CompleteCycle()
     {
-        float _power = power;
+        ProducePower();
+        ResetTimer();
+    }
+    protected void ProducePower()
+    { curPower += (maxPower / cyclesPerSecond); }
 
-        if(power > 0) { power = 0; }
+    protected void ResetTimer() { timePassed = 0; }
 
-        return _power;
+    protected void CapPower() { if (curPower < maxPower) curPower = maxPower; }
+
+    public void DrawPower()
+    {
+
     }
 }
