@@ -34,15 +34,19 @@ public class Generator : PowerSupply
         ProducePower();
         ResetTimer();
     }
-    protected void ProducePower()
-    { curPower += (maxPower / cyclesPerSecond); }
+    protected void ProducePower() { curPower += (maxPower / cyclesPerSecond); }
 
     protected void ResetTimer() { timePassed = 0; }
 
     protected void CapPower() { if (curPower < maxPower) curPower = maxPower; }
 
-    public void DrawPower()
+    public float DrawPower(float _request)
     {
+        float _draw;
 
+        if (_request > curPower) { _draw = curPower; }
+        else { _draw = _request; }
+
+        return _draw;
     }
 }
